@@ -1,10 +1,10 @@
 ---
 
-layout: python
+layout: posts
 
-title: All Posts
+title: All Python Posts
 
-excerpt: "A List of Posts"
+excerpt: "A List of Python Posts"
 
 comments: false
 
