@@ -1,6 +1,6 @@
 ---
 
-layout: post-list
+layout: python
 
 title: All Posts
 
