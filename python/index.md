@@ -1,8 +1,8 @@
 ---
 
-layout: posts
+layout: post-list
 
-title: All Python Posts
+title: Python
 
 excerpt: "A List of Python Posts"
 
