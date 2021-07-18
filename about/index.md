@@ -1,24 +1,17 @@
 ---
 layout: page
-title: About the Theme
-tags: [about, Jekyll, theme, moon]
-date: 2016-03-21
+title: About Me
+tags: [about]
+date: 2021-07-18
 comments: false
 ---
     
-<center><a href="http://taylantatli.github.io/Moon"><b>Moon</b></a> is a minimal, one column jekyll theme.</center>
+<center><b>Coding is my everything.</b></center>
 
-## Features
-* Minimal, you can focus on your content
-* Responsive
-* Disqus integration
-* Syntax highlighting
-* Optional post image
-* Social icons
-* Page for sharing projects
-* Optional background image
-* Simple navigation menu
-* MathJax support
+## Me
+저는 SWH 코딩학원에 다니고있는 중3 학생입니다.
+코딩은 건축과 같다고 생각했습니다. 
+코딩을 하면 출력되는 결과를 보는것이 재밌고, 적성에 맞는거 같아 진로로 정하게 되었습니다.
 
 ## Preview
 
