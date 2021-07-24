@@ -6,4 +6,6 @@ category: Python
 tags: [python, discord]
 comments: false
 ---
+```
 집가서 할거
+```
