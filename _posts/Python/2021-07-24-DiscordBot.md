@@ -7,4 +7,4 @@ tags: [python, discord]
 comments: false
 ---
 
-<img width="600px" src="{{ site.url }}/assets/img/discord.png">
+<img width="600px" src="{{ site.url }}/assets/img/discord.png" alts="Discord 로고의 모습.">
