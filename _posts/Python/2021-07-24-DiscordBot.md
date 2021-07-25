@@ -6,4 +6,4 @@ category: Python
 tags: [python, discord]
 comments: false
 ---
-<img width="600px" src="/img/discord.png">
+<img width="600px" src="assets/img/discord.png">
