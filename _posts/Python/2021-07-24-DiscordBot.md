@@ -6,4 +6,4 @@ category: Python
 tags: [python, discord]
 comments: false
 ---
-<a href="https://discord.com/"><img src="/img/discord.png"></a>
+<img width="600px" src="/img/discord.png" style="box-shadow:none;">
