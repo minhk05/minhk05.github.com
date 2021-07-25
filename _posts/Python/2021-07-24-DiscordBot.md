@@ -7,6 +7,6 @@ tags: [python, discord]
 comments: false
 ---
 <figure class="half">
-    <a href="/images/discord.png"><img src="/images/discord.png"></a>
+    <a href="/img/discord.png"><img src="/img/discord.png"></a>
     <figcaption>Discord 로고.</figcaption>
 </figure>
