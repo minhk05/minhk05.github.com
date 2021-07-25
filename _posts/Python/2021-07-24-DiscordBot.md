@@ -6,6 +6,7 @@ category: Python
 tags: [python, discord]
 comments: false
 ---
-```
-집가서 할거
-```
+<figure class="half">
+    <a href="/images/discord.png"><img src="/images/discord.png"></a>
+    <figcaption>Discord 로고.</figcaption>
+</figure>
