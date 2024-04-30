@@ -3,7 +3,7 @@ layout: post
 title: "[Python] A* Algorithm"
 excerpt: "A* 알고리즘 미로찾기"
 category: Python
-tags: [python, discord]
+tags: [python, graph]
 comments: false
 ---
 
