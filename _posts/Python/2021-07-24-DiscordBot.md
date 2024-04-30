@@ -1,30 +1,85 @@
 ---
 layout: post
-title: "[Python] Study of Discord Bot"
-excerpt: "디스코드봇 공부"
+title: "[Python] A* Algorithm"
+excerpt: "A* 알고리즘 미로찾기"
 category: Python
 tags: [python, discord]
 comments: false
 ---
-<figure class="half">
-    <a href="https://discord.com/"><img width="600px" src="{{ site.url }}/assets/img/discord.png"></a>
-    <figcaption>Discord 로고의 모습.(디스코드 홈페이지로 이동)</figcaption>
-</figure>
 
-## Discord?
-Discord는 음성, 채팅, 화상통화 등을 지원하는 인스턴트 메신저이다. 한국에서는 주로 온라인 게임을 즐기는 사람들이 많이 이용하는 편이며, <br>
-뛰어난 성능과 간편함을 바탕으로 그 이전에 게임 유저들이 애용하던 여러 보이스 메신저들을 제치고 주류로 올라서는데 성공했다. 사실상 게임용 메신저의 대명사.<br>
-
-## discord.py
-discord.py를 이용해 파이썬으로 디스코드 봇을 만들 수 있다. <br>
-오늘은 discord.py를 이용해서 파이썬에서 디스코드 봇을 만들어보려고 한다.<br>
-
-discord.py를 이용하려면, discord 모듈을 다운받아야 한다.<br>
-cmd 창에서 `pip install discord` 를 쳐서 discord 모듈을 다운받았다.<br>
-
-## import
-본격적으로 discord 모듈을 사용하려면 discord 모듈을 `import` 해줘야한다.
 ```py
-import discord
-from discord.ext import commands
+class Node:
+    def __init__(self, parent=None, position=None):
+        self.parent = parent
+        self.position = position
+
+        self.g = 0
+        self.h = 0
+        self.f = 0
+
+    def __eq__(self, other):
+        return self.position == other.position
+
+def heuristic(node, goal, D=1, D2=2 ** 0.5):
+    dx = abs(node.position[0] - goal.position[0])
+    dy = abs(node.position[1] - goal.position[1])
+    return D * (dx + dy) + (D2 - 2 * D) * min(dx, dy)
+
+def star_algorithm(maze, start, end):
+    startNode = Node(None, start)
+    endNode = Node(None, end)
+    openList = []
+    closedList = []
+    openList.append(startNode)
+
+    while openList:
+        currentNode = openList[0]
+        currentIdx = 0
+
+        for index, item in enumerate(openList):
+            if item.f < currentNode.f:
+                currentNode = item
+                currentIdx = index
+        openList.pop(currentIdx)
+        closedList.append(currentNode)
+        if currentNode == endNode:
+            path = []
+            current = currentNode
+            while current is not None:
+                x, y = current.position
+                maze[x][y] = 7
+                path.append(current.position)
+                current = current.parent
+            return path[::-1]  # reverse
+        children = []
+
+        for newPosition in [(0, -1), (0, 1), (-1, 0), (1, 0), (-1, -1), (-1, 1), (1, -1), (1, 1)]:
+            nodePosition = (
+                currentNode.position[0] + newPosition[0],  # X
+                currentNode.position[1] + newPosition[1])  # Y
+            within_range_criteria = [
+                nodePosition[0] > (len(maze) - 1),
+                nodePosition[0] < 0,
+                nodePosition[1] > (len(maze[len(maze) - 1]) - 1),
+                nodePosition[1] < 0,
+            ]
+            if any(within_range_criteria):
+                continue
+            if maze[nodePosition[0]][nodePosition[1]] != 0:
+                continue
+            new_node = Node(currentNode, nodePosition)
+            children.append(new_node)
+
+        for child in children:
+            if child in closedList:
+                continue
+            child.g = currentNode.g + 1
+            child.h = ((child.position[0] - endNode.position[0]) **
+                       2) + ((child.position[1] - endNode.position[1]) ** 2)
+            child.f = child.g + child.h
+            if len([openNode for openNode in openList
+                    if child == openNode and child.g > openNode.g]) > 0:
+                continue
+
+            openList.append(child)
 ```
